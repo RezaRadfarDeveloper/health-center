@@ -1,18 +1,18 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Center;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class CentersTableSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call(CentersTableSeeder::class);
+        Center::factory()->count(20)->create();
     }
 }

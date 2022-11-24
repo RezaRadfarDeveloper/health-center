@@ -80,7 +80,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News <i class="far fa-user"></i> is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
+                                    Laravel News <i class="far fa-user"></i> is <i class="fa-solid fa-arrow-up"></i> a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
                                 </div>
                             </div>
                         </div>
