@@ -1,0 +1,14 @@
+.centers {
+    display: grid;
+    width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 20px 40px;
+}
+
+.center {
+   
+    &__img {
+        width: 100%;
+    }
+}

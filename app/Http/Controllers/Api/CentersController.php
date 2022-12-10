@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Center;
 use Illuminate\Http\Request;
 
 class CentersController extends Controller
@@ -14,7 +15,10 @@ class CentersController extends Controller
      */
     public function index()
     {
-        return ('index method');
+        $centers = Center::findOrFail(2);
+        $imageParts = explode("/",$centers->logo);
+        $image = end($imageParts);
+        return response()->json($image);
     }
 
     /**
