@@ -22791,7 +22791,7 @@ var _hoisted_1 = {
   "class": "center"
 };
 var _hoisted_2 = ["src"];
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<i class=\"center__like fa-regular fa-heart\"></i><h5 class=\"center__name\">Carlton Health</h5><div class=\"center__location\"><i class=\"fa-solid fa-location-dot\"></i><p>Carlton</p></div><div class=\"center__doctor\"><i class=\"fa-solid fa-user-doctor\"></i><p>350</p></div><div class=\"center__medical\"><i class=\"fa-solid fa-hospital\"></i><p>Carlton</p></div><div class=\"center__price\"><i class=\"fa-solid fa-location-dot\"></i><p>Carlton</p></div><button class=\"center__select\">Visit Center</button>", 7);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<i class=\"center__like fa-regular fa-heart\"></i><h5 class=\"center__name\">Carlton Health</h5><div class=\"center__location\"><i class=\"fa-solid fa-location-dot\"></i><p>Carlton</p></div><div class=\"center__doctor\"><i class=\"fa-solid fa-user-doctor\"></i><p>350</p></div><div class=\"center__medical\"><i class=\"fa-solid fa-hospital\"></i><p>Carlton</p></div><div class=\"center__price\"><i class=\"fa-solid fa-location-dot\"></i><p>Carlton</p></div><button class=\"btn center__btn\">Visit Center</button>", 7);
 function render(_ctx, _cache) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     "class": "center__img",

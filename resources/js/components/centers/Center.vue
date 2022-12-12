@@ -19,6 +19,6 @@
             <i class="fa-solid fa-location-dot"></i>
             <p>Carlton</p>
         </div>
-        <button class="center__select">Visit Center</button>
+        <button class="btn center__btn">Visit Center</button>
     </div>
 </template>
