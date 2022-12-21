@@ -1,8 +1,8 @@
 <template>
     <div class="center">
-        <img class="center__img" :src="'http://127.0.0.1:8000/storage/images/' + '2b7ee470a5dfcfdede6fd5f2fc1029f2.png'"  alt="Not found">
+        <img class="center__img" :src="centerLogo"  alt="Not found">
         <i class="center__like fa-regular fa-heart"></i>
-        <h5 class="center__name">Carlton Health</h5>
+        <h5 class="center__name">{{center.name}}</h5>
         <div class="center__location">
             <i class="fa-solid fa-location-dot"></i>
             <p>Carlton</p>
@@ -22,3 +22,26 @@
         <button class="btn center__btn">Visit Center</button>
     </div>
 </template>
+
+<script>
+export default {
+    props: ['center'],
+
+    data() {
+        return {
+            centerLogo: ''
+        }
+    },
+
+    created() {
+            this.setCenter();
+    },
+    
+    methods: {
+        setCenter() {
+            const centerProps = this.center.logo.split("/");
+             this.centerLogo = 'http://127.0.0.1:8000/storage/images/' + centerProps[centerProps.length - 1];
+        }
+    }
+}
+</script>

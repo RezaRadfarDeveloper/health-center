@@ -15,10 +15,11 @@ class CentersController extends Controller
      */
     public function index()
     {
-        $centers = Center::findOrFail(2);
-        $imageParts = explode("/",$centers->logo);
-        $image = end($imageParts);
-        return response()->json($image);
+        // $centers = Center::findOrFail(2);
+        // $imageParts = explode("/",$centers->logo);
+        // $image = end($imageParts);
+        $centers = Center::all();
+        return response()->json($centers);
     }
 
     /**
