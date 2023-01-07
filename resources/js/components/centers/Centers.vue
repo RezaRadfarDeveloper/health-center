@@ -1,7 +1,6 @@
 <template> 
     <section class="centers">
-       <Center v-for="center in centersCount" :center="center" :key="center.id"></Center>
-       
+       <Center v-for="center in centersCount" :center="center" :key="center.id"></Center>       
     </section>
 </template>
 
@@ -22,7 +21,7 @@ components: {
     methods: {
 
         getImage() {
-            axios.get('http://127.0.0.1:8000/api/centers').then((response) =>
+            axios.get('/api/centers').then((response) =>
             {
                 console.log(response.data.length);
                 this.centersCount = response.data;
