@@ -21172,3 +21172,26 @@ div {
   border-radius: 0;
 }
 
+.loading {
+  width: 400px;
+  height: 200px;
+  font-size: 50px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.827);
+  border: none;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.icon-style {
+  position: absolute;
+  font-size: 80px;
+  top: 50%;
+  left: 50%;
+  color: rgba(90, 123, 201, 0.942);
+  padding: 40px;
+  transform: translate(-50%, -50%);
+}
+

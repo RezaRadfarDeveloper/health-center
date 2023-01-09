@@ -1,5 +1,6 @@
 import Centers from './components/centers/Centers';
-import Center from './components/centers/Center';
+import CenterInList from './components/centers/CenterInList';
+import Center from './components/Center/Center';
 import * as VueRouter from 'vue-router';
 
 const routes = [

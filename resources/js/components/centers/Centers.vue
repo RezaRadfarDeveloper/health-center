@@ -1,38 +1,50 @@
 <template> 
     <section class="centers">
-       <Center v-for="center in centersCount" :center="center" :key="center.id"></Center>       
+        <Loader v-if="loading"></Loader>
+        <center-in-list v-else v-for="center in centersCount" :center="center" :key="center.id"></center-in-list>       
     </section>
 </template>
 
 
 <script>
-import Center from './Center.vue';
+import CenterInList from './CenterInList';
+import Loader from '../subcomponents/Loader';
 
 export default {
 components: {
-        Center
+        CenterInList,
+        Loader
 },
     data() {
         return {
             image: null,
-            centersCount: []
+            centersCount: [],
+            loading: false
         }
     },
     methods: {
 
-        getImage() {
-            axios.get('/api/centers').then((response) =>
+        fetchCenters() {
+            axios.get('/api/centers').
+            then((response) =>
             {
                 console.log(response.data.length);
                 this.centersCount = response.data;
-
-            }).catch((errors) => {
+                this.loading = false;
+            })
+            .catch((errors) => 
+            {
+                this.loading = false;
                 console.log(errors);
             });
         }
     },
     mounted() {
-            this.getImage();
+        this.loading = true;
+        setTimeout(() =>
+        this.fetchCenters(),
+        1500);
+            
     }
 }
 </script>
