@@ -19,7 +19,7 @@
             <i class="fa-solid fa-location-dot"></i>
             <p>Carlton</p>
         </div>
-        <button class="btn center__btn"><router-link :to="{name: 'center', params:{id:center.id}}">Visit Center</router-link></button>
+        <button class="btn center__btn"><router-link class="btn-click" :to="{name: 'center', params:{id:center.id}}">Visit Center</router-link></button>
     </div>
 </template>
 

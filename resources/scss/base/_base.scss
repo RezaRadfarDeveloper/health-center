@@ -1,6 +1,13 @@
-
+// COLORS 
+$color-secondary-light:rgb(159, 34, 140);;
 
  *, h5, p {
     margin: 0;
     padding: 0;
 } 
+
+
+html {
+    font-size: 62.5%; // 10px/16px rem = 10px
+}
+

@@ -3,6 +3,7 @@
         <Loader v-if="loading"></Loader>
         <center-in-list v-else v-for="center in centersCount" :center="center" :key="center.id"></center-in-list>       
     </section>
+    <button v-if="nextUrl" class="btnLoadMore" @click.prevent="loadMore(nextUrl)">Load more</button>
 </template>
 
 
@@ -19,7 +20,8 @@ components: {
         return {
             image: null,
             centersCount: [],
-            loading: false
+            loading: false,
+            nextUrl: null
         }
     },
     methods: {
@@ -28,8 +30,8 @@ components: {
             axios.get('/api/centers').
             then((response) =>
             {
-                console.log(response.data.length);
-                this.centersCount = response.data;
+                this.nextUrl = response.data.next_page_url;
+                this.centersCount = response.data.data;
                 this.loading = false;
             })
             .catch((errors) => 
@@ -37,14 +39,27 @@ components: {
                 this.loading = false;
                 console.log(errors);
             });
+        },
+
+        loadMore(nextUrl) {
+            axios.get(`${this.nextUrl}`).
+            then((response) => {
+
+               this.nextUrl = response.data.next_page_url;
+               this.centersCount.push(...response.data.data)
+
+            }).catch(errors => {
+                console.log(errors); 
+            })
+            console.log(nextUrl);
         }
     },
-    mounted() {
-        this.loading = true;
-        setTimeout(() =>
-        this.fetchCenters(),
-        1500);
+    created() {
+            this.loading = true;
+            setTimeout(() =>
+            this.fetchCenters(),
+            1000);
             
-    }
+        }
 }
 </script>

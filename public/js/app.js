@@ -23040,6 +23040,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _CenterInList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CenterInList */ "./resources/js/components/centers/CenterInList.vue");
 /* harmony import */ var _subcomponents_Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../subcomponents/Loader */ "./resources/js/components/subcomponents/Loader.vue");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -23051,28 +23057,40 @@ __webpack_require__.r(__webpack_exports__);
     return {
       image: null,
       centersCount: [],
-      loading: false
+      loading: false,
+      nextUrl: null
     };
   },
   methods: {
     fetchCenters: function fetchCenters() {
       var _this = this;
       axios.get('/api/centers').then(function (response) {
-        console.log(response.data.length);
-        _this.centersCount = response.data;
+        _this.nextUrl = response.data.next_page_url;
+        _this.centersCount = response.data.data;
         _this.loading = false;
       })["catch"](function (errors) {
         _this.loading = false;
         console.log(errors);
       });
+    },
+    loadMore: function loadMore(nextUrl) {
+      var _this2 = this;
+      axios.get("".concat(this.nextUrl)).then(function (response) {
+        var _this2$centersCount;
+        _this2.nextUrl = response.data.next_page_url;
+        (_this2$centersCount = _this2.centersCount).push.apply(_this2$centersCount, _toConsumableArray(response.data.data));
+      })["catch"](function (errors) {
+        console.log(errors);
+      });
+      console.log(nextUrl);
     }
   },
-  mounted: function mounted() {
-    var _this2 = this;
+  created: function created() {
+    var _this3 = this;
     this.loading = true;
     setTimeout(function () {
-      return _this2.fetchCenters();
-    }, 1500);
+      return _this3.fetchCenters();
+    }, 1000);
   }
 });
 
@@ -23162,6 +23180,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     src: $data.centerLogo,
     alt: "Not found"
   }, null, 8 /* PROPS */, _hoisted_2), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.center.name), 1 /* TEXT */), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    "class": "btn-click",
     to: {
       name: 'center',
       params: {
@@ -23197,7 +23216,7 @@ var _hoisted_1 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Loader = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Loader");
   var _component_center_in_list = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("center-in-list");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Loader, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [$data.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Loader, {
     key: 0
   })) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 1
@@ -23206,7 +23225,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       center: center,
       key: center.id
     }, null, 8 /* PROPS */, ["center"]);
-  }), 128 /* KEYED_FRAGMENT */))]);
+  }), 128 /* KEYED_FRAGMENT */))]), $data.nextUrl ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 0,
+    "class": "btnLoadMore",
+    onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+      return $options.loadMore($data.nextUrl);
+    }, ["prevent"]))
+  }, "Load more")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),

@@ -10826,6 +10826,10 @@ textarea.form-control-lg {
   padding: 0;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 /*!
  * Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -21105,10 +21109,6 @@ readers do not read off random characters that represent icons */
   content: "\f3f6";
 }
 
-div {
-  background-color: rgba(212, 150, 17, 0.827);
-}
-
 .centers {
   display: grid;
   width: 1000px;
@@ -21172,6 +21172,20 @@ div {
   border-radius: 0;
 }
 
+.btnLoadMore {
+  background-color: rgb(159, 34, 140);
+  border-radius: 5px;
+  padding: 1.5rem 6rem;
+  font-size: 2rem;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.btn-click {
+  width: 100%;
+  display: inline-block;
+}
+
 .loading {
   width: 400px;
   height: 200px;
@@ -21193,5 +21207,18 @@ div {
   color: rgba(90, 123, 201, 0.942);
   padding: 40px;
   transform: translate(-50%, -50%);
+}
+
+div {
+  background-color: rgba(212, 150, 17, 0.827);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffefe;
+  margin: 5rem;
 }
 

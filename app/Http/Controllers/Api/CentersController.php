@@ -18,7 +18,7 @@ class CentersController extends Controller
         // $centers = Center::findOrFail(2);
         // $imageParts = explode("/",$centers->logo);
         // $image = end($imageParts);
-        $centers = Center::all();
+        $centers = Center::paginate(6);
         return response()->json($centers);
     }
 
