@@ -21222,3 +21222,31 @@ div {
   margin: 5rem;
 }
 
+.search {
+  width: 70rem;
+  height: 5rem;
+  border: none;
+  background-color: #eee;
+  border-radius: 4px;
+  font-size: 1.9rem;
+  color: rgb(152, 148, 148);
+  padding: 0 2rem;
+  font-weight: 400;
+}
+.search:focus {
+  outline: none;
+}
+
+.search-icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
+}
+
+.search-container {
+  background-color: transparent;
+  position: relative;
+}
+
