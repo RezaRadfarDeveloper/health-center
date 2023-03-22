@@ -1,6 +1,6 @@
 <template>
     <div class="search-container">
-        <input type="text" @keyup="sendTerm()" class="search" v-model="searchTerm">
+        <input type="text" @keyup.enter="sendTerm()" class="search" v-model="searchTerm">
         <i class="search-icon fa-solid fa-magnifying-glass"></i>
     </div>
 </template>
