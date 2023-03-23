@@ -21,6 +21,7 @@ class DoctorFactory extends Factory
             'last' => $this->faker->lastName(),
             'age' => $this->faker->numberBetween(24, 75),
             'expertise' => $expertise[array_rand($expertise,1)],
+            'image' => $this->faker->image(storage_path('app/public/images'),100,100,false),
         ];
     }
 }

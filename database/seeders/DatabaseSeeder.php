@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Center;
+use App\Models\Doctor;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,5 +17,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CentersTableSeeder::class);
         $this->call(DoctorsTableSeeder::class);
+
+        $doctors = Doctor::all();
+        $doctorsCount = $doctors->count();
+        Center::all()->each(function ($center) use ($doctors, $doctorsCount) { 
+            $center->doctors()->attach(
+                $doctors->random(rand(1, $doctorsCount))->pluck('id')->toArray()
+            ); 
+        });
     }
 }
+

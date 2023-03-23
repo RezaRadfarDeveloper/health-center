@@ -12,6 +12,6 @@ class Center extends Model
 
     public function doctors() 
     {
-        $this->belongsToMany(Doctor::class);
+       return $this->belongsToMany(Doctor::class);
     }
 }
