@@ -11,7 +11,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;
-
+    background-color: #efdda6ca;
     &__img {
         width: 100%; 
         grid-row: 1 / 2;
@@ -70,6 +70,18 @@
         font-weight: 400;
         border: none;
         border-radius: 0;
+
+        &:hover {
+            background-color: white;
+
+            a {
+                color: $color-secondary-light;
+            }
+        }
+
+        &:active {
+            color: $color-secondary-light;
+        }
     }
 }
 

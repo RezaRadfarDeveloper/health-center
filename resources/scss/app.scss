@@ -1,14 +1,16 @@
 @import "~bootstrap/scss/bootstrap";
 
 // Font-Awesome
-@import "base/base";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
+// PARTIALS FILES 
+@import "abstracts/variables";
+@import "base/base";
+@import "components/center"; 
 @import "components/centers";
 @import "components/loader";
-@import "custom";
 @import "pages/home";
 @import "components/search";

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 use App\Models\Center;
+use App\Models\Image;
 use Illuminate\Database\Seeder;
 
 class CentersTableSeeder extends Seeder
@@ -13,6 +14,11 @@ class CentersTableSeeder extends Seeder
      */
     public function run()
     {
-        Center::factory()->count(20)->create();
+
+        $centers =Center::factory()->count(20)->create();
+        $centers->each(function($center) {
+        $image = Image::factory()->make(); 
+        $center->image()->save($image);
+        });
     }
 }

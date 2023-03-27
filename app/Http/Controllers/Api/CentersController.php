@@ -15,10 +15,12 @@ class CentersController extends Controller
      */
     public function index()
     {
-        // $centers = Center::findOrFail(2);
-        // $imageParts = explode("/",$centers->logo);
-        // $image = end($imageParts);
-        $centers = Center::paginate(6);
+        
+        $centers = Center::leftJoin('images','images.imageable_id','=', 'centers.id')
+        ->where('images.imageable_type','=', 'App\Models\Center')
+        ->select('centers.*', 'images.path as path', 'images.imageable_type as type')
+        ->paginate(6);
+
         return response()->json($centers);
     }
 

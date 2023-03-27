@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Doctor;
+use App\Models\Image;
 use Illuminate\Database\Seeder;
 
 class DoctorsTableSeeder extends Seeder
@@ -14,6 +15,11 @@ class DoctorsTableSeeder extends Seeder
      */
     public function run()
     {
-        Doctor::factory()->count(50)->create();
+       $doctors =  Doctor::factory()->count(50)->create();
+        $doctors->each(function($doctor) {
+        $image = Image::factory()->make(); 
+        $doctor->image()->save($image);
+
+        });
     }
 }

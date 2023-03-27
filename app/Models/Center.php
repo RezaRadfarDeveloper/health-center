@@ -14,4 +14,8 @@ class Center extends Model
     {
        return $this->belongsToMany(Doctor::class);
     }
+
+     public function image() {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

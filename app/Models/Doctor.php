@@ -13,4 +13,8 @@ class Doctor extends Model
     {
        return  $this->belongsToMany(Center::class);
     }
+
+    public function image() {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

@@ -20,7 +20,7 @@ class CenterFactory extends Factory
             'address' => $this->faker->address(),
             'city' => $this->faker->city(),
             'state' => $states[array_rand($states,1)],
-            'logo' => $this->faker->image(storage_path('app/public/images'),100,100,false),
+            // 'logo' => $this->faker->image(storage_path('app/public/images'),100,100,false),
         ];
     }
 }
