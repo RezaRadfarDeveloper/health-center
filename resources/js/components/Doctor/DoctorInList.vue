@@ -10,6 +10,7 @@
 <script>
 export default {
     props: ["doctor"],
+
     data() {
         return {
             doctorImg: "",
