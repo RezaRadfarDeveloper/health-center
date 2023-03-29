@@ -6,11 +6,12 @@
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
-// PARTIALS FILES 
+// PARTIALS FILES
 @import "abstracts/variables";
 @import "base/base";
-@import "components/center"; 
+@import "components/center";
 @import "components/centers";
 @import "components/loader";
-@import "pages/home";
 @import "components/search";
+@import "components/doctor";
+@import "pages/home";

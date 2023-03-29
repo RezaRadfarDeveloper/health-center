@@ -22,7 +22,7 @@ class CentersController extends Controller
         ->paginate(6);
 
         return response()->json($centers);
-    }
+    } 
 
     /**
      * Store a newly created resource in storage.

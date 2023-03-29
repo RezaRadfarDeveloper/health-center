@@ -21121,13 +21121,6 @@ html {
   height: 100%;
 }
 
-.doctors-list {
-  flex: 1;
-  background-color: bisque;
-  height: 100%;
-  overflow-y: auto;
-}
-
 .centers {
   display: grid;
   width: 1000px;
@@ -21238,15 +21231,6 @@ html {
   transform: translate(-50%, -50%);
 }
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fffefe;
-  margin: 5rem;
-}
-
 .search {
   width: 70rem;
   height: 5rem;
@@ -21273,5 +21257,33 @@ html {
 .search-container {
   background-color: transparent;
   position: relative;
+}
+
+.doctor-item {
+  width: 31%;
+  height: 46rem;
+  background-color: #aaa;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  overflow-x: hidden;
+}
+.doctors-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 2rem 2rem;
+  flex: 1;
+  background-color: bisque;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffefe;
+  margin: 5rem;
 }
 

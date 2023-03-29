@@ -1,0 +1,24 @@
+.doctor-item {
+    width: 31%;
+    height: 46rem;
+    background-color: #aaa;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    overflow-x: hidden;
+    &__image {
+    }
+
+    &__info {
+    }
+}
+
+.doctors-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2rem 2rem;
+    flex: 1;
+    background-color: bisque;
+    height: 100%;
+    overflow-y: auto;
+}
