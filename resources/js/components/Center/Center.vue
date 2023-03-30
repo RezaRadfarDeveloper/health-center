@@ -29,10 +29,6 @@ export default {
         };
     },
 
-    mounted() {
-        //   this.id = this.$route.params.id;
-    },
-
     created() {
         this.id = this.$route.params.id;
         this.fetchCenterDoctors();
