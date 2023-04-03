@@ -3,8 +3,7 @@
         <div class="doctor-section">Doctor with ID: {{ id }}</div>
         <img v-if="doctor" :src="doctor.image" alt="" />
         <h4>
-            <router-link
-                :to="{ name: 'center', params: { centerId: centerId } }"
+            <router-link :to="{ name: 'center', params: { id: centerId } }"
                 >back to Center</router-link
             >
         </h4>
@@ -43,7 +42,6 @@ export default {
             axios
                 .get(`http://127.0.0.1:8000/api/doctor/${this.id}/centers`)
                 .then((response) => {
-                    console.log(response.data);
                     const result = response.data;
                     this.tempImg = result.image.path;
                     this.doctor = {
@@ -63,10 +61,6 @@ export default {
         },
         setImgUrl(img) {
             const ImgParts = img.split("/");
-
-            // this.doctor.image =
-            //     "http://127.0.0.1:8000/storage/images/" +
-            //     doctorImgParts[doctorImgParts.length - 1];
 
             return (
                 "http://127.0.0.1:8000/storage/images/" +
