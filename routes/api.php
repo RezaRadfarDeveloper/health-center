@@ -20,5 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('centers','Api\CentersController');
+// ROUTE TO FETCH DOCTORS FOR A CENTER
+
 Route::get('center/{centerId}/doctors', 'Api\Center\CenterDoctorsController')->name('center.doctors');
+
+// ROUTE TO FETCH CENTERS FOR A DOCTOR
+Route::get('doctor/{doctorId}/centers', 'Api\Doctor\DoctorCentersController')->name('doctor.centers');
 Route::get('centers-search', 'Api\CentersSearchController')->name('centers.search');
