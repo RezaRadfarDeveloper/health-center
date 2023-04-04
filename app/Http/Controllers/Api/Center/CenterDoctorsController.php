@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\Center;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DoctorResource;
 use App\Models\Center;
-use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class CenterDoctorsController extends Controller
@@ -18,15 +17,15 @@ class CenterDoctorsController extends Controller
      */
     public function __invoke(Request $request, $centerId)
     {
-        
-       $center = Center::findOrFail($centerId);
 
-       $doctors = $center->doctors()
-       ->join('images', 'images.imageable_id', '=', 'doctors.id')
-       ->where('imageable_type', '=', 'App\Models\Doctor')
-       ->select('doctors.*','images.path as img')
-       ->get();
+    $centerDoctors = Center::with(['doctors.image' => function($query) {
+            $query->select(['imageable_id', 'path']);
+        },'image' =>function($query) {
+            $query->select(['imageable_id', 'path']);
+        }])
+        ->where('centers.id','=',$centerId)
+        ->first();
 
-        return response()->json($doctors);
+        return response()->json($centerDoctors);
     }
 }

@@ -2,6 +2,7 @@
     <div class="center-container">
         <div class="center-section">
             <h1>Center ID: {{ id }}</h1>
+            <img v-if="center" :src="center.image" alt="" />
             <router-link :to="{ name: 'home' }">Back home</router-link>
         </div>
         <div class="doctors-list">
@@ -16,8 +17,10 @@
 
 <script>
 import DoctorInList from "../Doctor/DoctorInList.vue";
+import { imgUrlConverter } from "../../mixins/imgUrlConverter.js";
 
 export default {
+    mixins: [imgUrlConverter],
     components: {
         DoctorInList,
     },
@@ -26,6 +29,7 @@ export default {
         return {
             id: null,
             doctorsList: [],
+            center: null,
         };
     },
 
@@ -39,7 +43,19 @@ export default {
             axios
                 .get(`http://127.0.0.1:8000/api/center/${this.id}/doctors`)
                 .then((response) => {
-                    this.doctorsList = response.data;
+                    console.log(response.data);
+                    const result = response.data;
+                    this.tempImg = result.image.path;
+
+                    this.center = {
+                        name: result.name,
+                        city: result.city,
+                        address: result.address,
+                        phone: result.phone,
+                        state: result.state,
+                        image: this.setImgUrl(this.tempImg),
+                    };
+                    this.doctorsList = response.data.doctors;
                 })
                 .catch((error) => console.log(error.message));
         },

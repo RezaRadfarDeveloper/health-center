@@ -22,7 +22,9 @@
 </template>
 
 <script>
+import { imgUrlConverter } from "../../mixins/imgUrlConverter";
 export default {
+    mixins: [imgUrlConverter],
     data() {
         return {
             id: null,
@@ -58,14 +60,6 @@ export default {
                 .catch((error) => {
                     console.log(error.message);
                 });
-        },
-        setImgUrl(img) {
-            const ImgParts = img.split("/");
-
-            return (
-                "http://127.0.0.1:8000/storage/images/" +
-                ImgParts[ImgParts.length - 1]
-            );
         },
     },
 };
